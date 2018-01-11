@@ -5,6 +5,7 @@
   */
 
 ;(function(window, document) {
+    if (window === null || document === null) return;
     'use strict';
     
     /*
@@ -465,7 +466,7 @@
         checkScroll();
         window.addEventListener('scroll', checkScroll);
     
-        // Watch for window resizes and device orientation cahnges and trigger refresh
+        // Watch for window resizes and device orientation changes and trigger refresh
         window.addEventListener('resize', Stickyfill.refreshAll);
         window.addEventListener('orientationchange', Stickyfill.refreshAll);
     
@@ -519,4 +520,4 @@
         window.Stickyfill = Stickyfill;
     }
     
-})(window, document);
+})(typeof window === "undefined" ? null : window, typeof document === "undefined" ? null : document);
