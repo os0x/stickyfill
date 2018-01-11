@@ -26,8 +26,8 @@ module.exports = function(grunt) {
             es5: {
                 options: {
                     wrapper: [
-                        '<%= banner %>\n;(function(window, document) {',
-                        '})(window, document);'
+                        '<%= banner %>\n;(function(window, document) {\n    if (window === null || document === null) return;',
+                        '})(typeof window === "undefined" ? null : window, typeof document === "undefined" ? null : document);'
                     ],
                     indent: '    '
                 },
